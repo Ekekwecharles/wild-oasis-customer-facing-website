@@ -5,10 +5,14 @@ import Spinner from "../_components/Spinner";
 import Filter from "../_components/Filter";
 import ReservationReminder from "../_components/ReservationReminder";
 
-interface SearchParams {
-  capacity?: string;
-  [key: string]: string | undefined; // Allow other query params if needed
-}
+// interface SearchParams {
+//   capacity?: string;
+//   [key: string]: string | undefined; // Allow other query params if needed
+// }
+
+type PageProps = {
+  searchParams?: Record<string, string | undefined>;
+};
 
 export const revalidate = 3600;
 // export const revalidate = 15;
@@ -17,11 +21,7 @@ export const metadata = {
   title: "Cabins",
 };
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
+export default async function Page({ searchParams }: PageProps) {
   const filter = searchParams?.capacity ?? "all";
 
   return (
