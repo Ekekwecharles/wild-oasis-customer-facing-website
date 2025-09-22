@@ -4,7 +4,7 @@ on:
   schedule:
     # Run every 5 days at 8 AM UTC
     - cron: "0 8 */5 * *"
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual runs
 
 jobs:
   ping-supabase:
@@ -13,7 +13,7 @@ jobs:
       - name: Send ping request
         id: ping
         run: |
-          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "https://your-site.vercel.app/api/ping")
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "https://wild-oasis-customer-facing-website-fawn.vercel.app/api/ping")
           if [ "$RESPONSE" -ne 200 ]; then
             echo "Ping failed with status $RESPONSE"
             exit 1
@@ -29,6 +29,6 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "Supabase Ping Failed!"
-          to: your-email@example.com
-          from: "GitHub Actions <your-email@example.com>"
+          to: ekekwecharles50@gmail.com
+          from: "GitHub Actions <ekekwecharles50@gmail.com>"
           body: "The ping to your Supabase project failed. Please check the API endpoint."

@@ -10,7 +10,7 @@ Guests can **browse cabins, make reservations, manage bookings, and update profi
 
 ## 🚀 Live Demo
 
-[Visit the Customer Website](#) <!-- Add the deployed link for this customer version -->
+[Visit the Customer Website](https://wild-oasis-customer-facing-website-fawn.vercel.app/) <!-- Add the deployed link for this customer version -->
 
 ---
 
