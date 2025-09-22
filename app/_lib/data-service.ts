@@ -102,14 +102,14 @@ export async function getBookings(guestId) {
 export async function getBookedDatesByCabinId(cabinId) {
   let today = new Date();
   today.setUTCHours(0, 0, 0, 0);
-  today = today.toISOString();
+  // today = today.toISOString();
 
   // Getting all bookings
   const { data, error } = await supabase
     .from("bookings")
     .select("*")
     .eq("cabinId", cabinId)
-    .or(`startDate.gte.${today},status.eq.checked-in`);
+    .or(`startDate.gte.${today.toDateString()},status.eq.checked-in`);
 
   if (error) {
     console.error(error);
